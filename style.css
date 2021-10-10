@@ -2,7 +2,7 @@
 	Theme Name: North Child Theme
 	Theme URI: https://themeforest.net/item/north-responsive-woocommerce-theme/9117256
 	Description: <strong>A Premium theme for magazine, editor, community and more! WordPress Theme by <a href="http://www.themeforest.net/user/fuelthemes">fuelthemes</a></strong> – Update notifications available on Twitter and Themeforest <a href="http://twitter.com/anteksiler">Follow us on twitter</a> – <a href="http://themeforest.net/user/fuelthemes">Follow us on Themeforest</a>
-	Version: 1.2.1
+	Version: 1.2.4
 	Author: fuelthemes
 	Author URI: http://themeforest.net/user/fuelthemes
 	Template: north-wp
@@ -121,6 +121,16 @@ a.mobile-toggle {
  top: 100%; 
 }
 
+/* Shop - Disable Select Options */
+.products .product.thb-listing-button-style4:hover .thb_transform_price .thb_transform_loop_buttons {
+  display: none;
+}
+.products .product.thb-listing-button-style4:hover .thb_transform_price .thb_transform_loop_price {
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
 /* Shop Filter */
 
 .widget h6 span:after {
@@ -158,6 +168,36 @@ a.mobile-toggle {
  display: none; 
 }
 
+/* Change the load more icon */
+
+.berocket_lmp_ajax_loading .lmp_products_loading {
+  position: relative;
+}
+.berocket_lmp_ajax_loading .lmp_products_loading:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 3em;
+  height: 3em;
+  margin-top: -1.5em;
+  margin-left: -1.5em;
+  border-radius: 100px;
+  border: 1px dashed transparent;
+  border-bottom-color: #46586a;
+  animation: spinner .6s linear infinite;
+  box-sizing: border-box;
+  bottom: 0px;
+}
+.berocket_lmp_ajax_loading .lmp_products_loading .fa.fa-spinner,
+.berocket_lmp_ajax_loading .lmp_products_loading span {
+  display: none;
+}
+@keyframes spinner {
+  to {
+  transform: rotate(360deg);
+}
+}
+
 /* Woocommerce bottom notifications */
 
 .woocommerce-info {
@@ -170,7 +210,10 @@ a.mobile-toggle {
 }
 
 /* Product Pages */
-
+.product_meta .posted_in,
+.product_meta .tagged_as {
+  display: none !important;
+}
 .sizing-help {
   position: relative;
 }
